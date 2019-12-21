@@ -24,4 +24,20 @@ $("#add-train-btn").on("click", function(event) {
   const frequency = $("#frequency-input")
     .val()
     .trim();
+
+  const newTrain = {
+    name: trainName,
+    destination: destination,
+    firstTrain: firstTrain,
+    frequency: frequency
+  };
+
+  trainData.ref().push(newTrain);
+
+  alert("Train successfully added");
+
+  $("#train-name-input").val("");
+  $("#destination-input").val("");
+  $("#first-train-input").val("");
+  $("#frequency-input").val("");
 });
