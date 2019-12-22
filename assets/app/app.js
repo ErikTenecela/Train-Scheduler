@@ -41,3 +41,7 @@ $("#add-train-btn").on("click", function(event) {
   $("#first-train-input").val("");
   $("#frequency-input").val("");
 });
+
+trainData.ref().on("child_added", function(childSnapshot, prevChildKey) {
+  console.log(childSnapshot.val());
+});
