@@ -44,4 +44,18 @@ $("#add-train-btn").on("click", function(event) {
 
 trainData.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(childSnapshot.val());
+
+  const tName = childSnapshot.val().name;
+  const tDestination = childSnapshot.val().destination;
+  const tFrequency = childSnapshot.val().frequency;
+  const tFirstTrain = childSnapshot.val().firstTrain;
+
+  const timeArr = tFirstTrain.split(":");
+  const trainTime = moment()
+    .hours(timeArr[0])
+    .minutes(timeArr[1]);
+  const maxMoment = moment.max(moment(), trainTime);
+  const tMinutes;
+  const tArrival;
+
 });
